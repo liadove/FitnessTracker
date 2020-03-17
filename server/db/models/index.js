@@ -1,4 +1,7 @@
 const User = require('./user')
+const DailyCheck = require('./dailyCheck')
+const Workout = require('./workout')
+const WorkoutDone = require('./workoutDone')
 
 /**
  * If we had any associations to make, this would be a great place to put them!
@@ -7,6 +10,14 @@ const User = require('./user')
  *    BlogPost.belongsTo(User)
  */
 
+DailyCheck.belongsTo(User)
+DailyCheck.belongsToMany(Workout, {
+  through: 'WorkoutDone'
+})
+Workout.belongsToMany(DailyCheck, {
+  through: 'WorkoutDone'
+})
+
 /**
  * We'll export all of our models here, so that any time a module needs a model,
  * we can just require it from 'db/models'
@@ -14,5 +25,8 @@ const User = require('./user')
  * instead of: const User = require('../db/models/user')
  */
 module.exports = {
-  User
+  User,
+  DailyCheck,
+  Workout,
+  WorkoutDone
 }

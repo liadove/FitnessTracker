@@ -3,10 +3,10 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 const User = db.define('user', {
-  firstname: {
+  firstName: {
     type: Sequelize.STRING
   },
-  lastname: {
+  lastName: {
     type: Sequelize.STRING
   },
   email: {
@@ -14,18 +14,17 @@ const User = db.define('user', {
     unique: true,
     allowNull: false
   },
+  birthday: Sequelize.DATE,
   weight: Sequelize.FLOAT,
+  weightGoal: Sequelize.ENUM(['Loss', 'Gain']),
+  weightTarget: Sequelize.FLOAT,
   heightFeet: Sequelize.INTEGER,
-  heightInches: Sequelize.FLOAT,
-  gender: Sequelize.STRING,
-  waterBalance: Sequelize.FLOAT,
-  waterDrunk: Sequelize.FLOAT,
-  weightGoal: Sequelize.STRING,
-  workoutTimes: Sequelize.INTEGER,
-  workoutesDid: Sequelize.INTEGER,
-  workoutPlan: Sequelize.TEXT,
-  caloriesPerDay: Sequelize.INTEGER,
-  caloriesAte: Sequelize.INTEGER,
+  heightInches: Sequelize.INTEGER,
+  activity: Sequelize.FLOAT,
+  gender: Sequelize.ENUM(['Female', 'Male']),
+  recommendedWaterPerDay: Sequelize.FLOAT,
+  caloriesRecommendedPerDay: Sequelize.FLOAT,
+  // workoutPlan: Sequelize.TEXT,
   password: {
     type: Sequelize.STRING,
     // Making `.password` act like a func hides it when serializing to JSON.

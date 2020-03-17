@@ -13,15 +13,15 @@ export const mainListItems = (
   <div>
     <ListItem button>
       <ListItemIcon>
-        <DashboardIcon />
-      </ListItemIcon>
-      <ListItemText primary="Main" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
         <FitnessCenterIcon />
       </ListItemIcon>
       <ListItemText primary="Fitness Tracker" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <DashboardIcon />
+      </ListItemIcon>
+      <ListItemText primary="Your Progress" />
     </ListItem>
     <ListItem button component={Link} to="/home/recipes">
       <ListItemIcon>

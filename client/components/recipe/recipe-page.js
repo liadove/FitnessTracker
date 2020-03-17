@@ -136,7 +136,3 @@ const RecipePage = () => {
   )
 }
 export default RecipePage
-// {<Typography className={classes.root1}>
-// {recipes.map(recipe=> <Link className={classes.link} href="#" /*onClick={preventDefault}*/ color="inherit" key={recipe.recipe_id}>{recipe.recipe_description}</Link>
-// )}
-// </Typography>}
