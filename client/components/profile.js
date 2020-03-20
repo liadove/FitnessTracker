@@ -230,7 +230,6 @@ const mapDispatchProfile = dispatch => {
         weightGoal,
         activity
       }
-      console.log(user)
       dispatch(editUser(user, id))
     }
   }

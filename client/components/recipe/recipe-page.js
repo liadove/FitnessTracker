@@ -62,7 +62,6 @@ const RecipePage = () => {
   const [Value, SetValue] = useState('')
   const [count, setCount] = useState(10)
   async function handleSubmit() {
-    console.log(value, Value)
     if (recipes && value === Value) {
       setCount(count + 10)
       SetValue(value)
