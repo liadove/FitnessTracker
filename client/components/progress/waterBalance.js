@@ -1,5 +1,6 @@
 import React from 'react'
-
+import {connect} from 'react-redux'
+import {getDailyCheckProps} from '../../store/dailyCheck'
 import PieChart, {
   Series,
   Label,
@@ -11,29 +12,43 @@ import PieChart, {
 class WaterBalance extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      waterDrunk: 0
+    }
 
     this.pointClickHandler = this.pointClickHandler.bind(this)
     this.legendClickHandler = this.legendClickHandler.bind(this)
+  }
+
+  async componentDidMount() {
+    let data = await this.props.getDailyCheckProps(this.props.userId)
+    console.log(data)
   }
 
   render() {
     return (
       <PieChart
         id="pie"
-        dataSource={[{argument: 2, value: 20}, {argument: 3, value: 30}]}
+        dataSource={[
+          {
+            argument: 'Recommended amount water per day',
+            value: this.props.recommendedWater
+          },
+          {argument: 'Water drunk', value: 22}
+        ]}
         palette="Bright"
         title="Water balance"
         onPointClick={this.pointClickHandler}
         onLegendClick={this.legendClickHandler}
       >
         <Series argumentField="argument" valueField="value">
-          <Label visible={true}>
+          <Label visible={false}>
             <Connector visible={true} width={1} />
           </Label>
         </Series>
         <Legend
           verticalAlignment="bottom"
-          horizontalAlignment="left"
+          horizontalAlignment="center"
           itemTextPosition="left"
           rowCount={2}
         />
@@ -60,4 +75,18 @@ class WaterBalance extends React.Component {
   }
 }
 
-export default WaterBalance
+const mapState = state => {
+  return {
+    recommendedWater: state.user.recommendedWaterPerDay,
+    userId: state.user.id,
+    waterDrunk: state.dailyCheck.waterDrunk
+  }
+}
+
+const mapDispatch = dispatch => {
+  return {
+    getDailyCheckProps: userId => dispatch(getDailyCheckProps(userId))
+  }
+}
+
+export default connect(mapState, mapDispatch)(WaterBalance)

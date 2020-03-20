@@ -3,7 +3,7 @@ const db = require('../db')
 
 const DailyCheck = db.define('dailyCheck', {
   date: {
-    type: Sequelize.DATE
+    type: Sequelize.STRING
   },
   waterDrunk: {
     type: Sequelize.FLOAT
