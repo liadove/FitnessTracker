@@ -50,6 +50,7 @@
     "compression": "^1.7.3",
     "connect-session-sequelize": "^6.0.0",
     "devextreme": "19.2.6",
+    "devextreme-react": "^19.2.6",
     "express": "^4.16.4",
     "express-session": "^1.15.1",
     "fatsecret": "^1.0.2",
