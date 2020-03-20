@@ -17,7 +17,7 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Fitness Tracker" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={Link} to="/home/progress">
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>

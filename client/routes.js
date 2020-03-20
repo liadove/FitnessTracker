@@ -8,6 +8,7 @@ import SignUpSide from './components/sign-up-side'
 import {me} from './store'
 import RecipePage from './components/recipe/recipe-page'
 import SingleRecipe from './components/recipe/single-recipe'
+import YourProgress from './components/progress/yourProgressPage'
 import Profile from './components/profile'
 
 /**
@@ -31,6 +32,7 @@ class Routes extends Component {
             <Route path="/home/recipes" component={RecipePage} />
             <Route path="/home/recipes/:id" component={SingleRecipe} />
             <Route path="/home/profile" component={Profile} />
+            <Route path="/home/progress" component={YourProgress} />
             <Route path="/" component={UserHome} />
           </Switch>
         )}

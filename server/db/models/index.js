@@ -12,10 +12,10 @@ const WorkoutDone = require('./workoutDone')
 
 DailyCheck.belongsTo(User)
 DailyCheck.belongsToMany(Workout, {
-  through: 'WorkoutDone'
+  through: 'workoutDones'
 })
 Workout.belongsToMany(DailyCheck, {
-  through: 'WorkoutDone'
+  through: 'workoutDones'
 })
 
 /**

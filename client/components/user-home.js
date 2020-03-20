@@ -18,6 +18,7 @@ import RecipePage from './recipe/recipe-page'
 import Profile from './profile'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import Container from '@material-ui/core/Container'
+import YourProgress from './progress/yourProgressPage'
 
 const drawerWidth = 240
 
@@ -164,6 +165,7 @@ export function UserHome(props) {
         <Container maxWidth="lg" className={classes.container}>
           <Switch>
             <Route path="/home/recipes" component={RecipePage} />
+            <Route path="/home/progress" component={YourProgress} />
             <Route path="/home/profile" component={Profile} />
           </Switch>
         </Container>
